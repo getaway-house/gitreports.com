@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731231431) do
+ActiveRecord::Schema.define(version: 2017_07_31_231431) do
 
   create_table "organizations", force: :cascade do |t|
-    t.string "name", limit: 255
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,19 +26,19 @@ ActiveRecord::Schema.define(version: 20170731231431) do
   end
 
   create_table "repositories", force: :cascade do |t|
-    t.string "github_id", limit: 255
-    t.string "name", limit: 255
-    t.string "display_name", limit: 255
-    t.string "issue_name", limit: 255
+    t.string "github_id"
+    t.string "name"
+    t.string "display_name"
+    t.string "issue_name"
     t.text "prompt"
     t.text "followup"
-    t.string "labels", limit: 255
+    t.string "labels"
     t.boolean "is_active"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "organization_id"
-    t.string "owner", limit: 255
-    t.string "notification_emails", limit: 255
+    t.string "owner"
+    t.string "notification_emails"
     t.boolean "allow_issue_title", default: false
     t.boolean "include_submitter_email", default: false
   end
@@ -59,10 +59,10 @@ ActiveRecord::Schema.define(version: 20170731231431) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username", limit: 255
-    t.string "name", limit: 255
-    t.string "avatar_url", limit: 255
-    t.string "access_token", limit: 255
+    t.string "username"
+    t.string "name"
+    t.string "avatar_url"
+    t.string "access_token"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean "is_admin", default: false
