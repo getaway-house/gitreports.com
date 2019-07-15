@@ -44,10 +44,11 @@
             </div>
 
             <div class="form-group">
-              <%= label :labels, t('submit_form.label.labels') %>
-              <%= text_field_tag :labels, @labels, class: 'form-control' %>
+              <%= label_tag :priority do %>
+                Priority Level: P3, P2, or P1. See <a href='https://docs.google.com/document/d/1slxrnvBVNzF2w5HnuSE0iGn4F0KAtBIN9dDnZ5_UHzo/edit?ts=5c5b08a2' target='_new'>this guide</a> for more information.
+              <% end %>
+              <%= select_tag :priority, options_for_select([[:p1, :p1], [:p2, :p2], [:p3, :p3]]), class: 'form-control' %>
             </div>
-
 
             <% if @repository.allow_issue_title %>
                 <div class="form-group">

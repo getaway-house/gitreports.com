@@ -41,7 +41,7 @@ class RepositoriesController < ApplicationController
     @repository = current_resource
 
     # Set each param passed in the URL.
-    %w[name email email_public issue_title details labels].each do |p|
+    %w[name email email_public issue_title details labels priority].each do |p|
       instance_variable_set("@#{p}", params[p.intern])
     end
   end
@@ -53,7 +53,7 @@ class RepositoriesController < ApplicationController
     if pass_captcha?
 
       # Submit issue
-      GithubJob.perform_later('submit_issue', repo.id, params[:name], params[:email], params[:email_public], params[:issue_title], params[:details], params[:labels])
+      GithubJob.perform_later('submit_issue', repo.id, params[:name], params[:email], params[:email_public], params[:issue_title], params[:details], params[:priority])
 
       # Redirect
       redirect_to submitted_path(repo.holder_name, repo.name)
