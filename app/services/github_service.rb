@@ -30,7 +30,7 @@ class GithubService
     end
 
     # rubocop:disable ParameterLists
-    def submit_issue(repo_id, sub_name, email, email_public, title, details)
+    def submit_issue(repo_id, sub_name, email, email_public, title, details, labels)
       # Find repo
       repo = Repository.find(repo_id)
 
@@ -42,7 +42,7 @@ class GithubService
       throw 'Rate limit reached' if client.rate_limit.remaining < 10
 
       # Create the issue
-      issue = create_issue(client, repo, issue_title, repo.construct_body(sub_name, email, email_public, details))
+      issue = create_issue(client, repo, issue_title, repo.construct_body(sub_name, email, email_public, details), labels)
 
       # Send notification email
       if repo.notification_emails.present?
@@ -96,11 +96,11 @@ class GithubService
       [found_repo_ids, found_org_names]
     end
 
-    def create_issue(client, repo, title, body)
+    def create_issue(client, repo, title, body, labels)
       name = repo.holder_name + '/' + repo.name
       issue_name = repo.issue_name.present? ? repo.issue_name : title
-      labels = { labels: repo.labels.present? ? repo.labels : '' }
-      client.create_issue(name, issue_name, body, labels)
+      labels_obj = { labels: labels ? labels : repo.labels.present? ? repo.labels : '' }
+      client.create_issue(name, issue_name, body, labels_obj)
     end
 
     def add_org(org_name, user)

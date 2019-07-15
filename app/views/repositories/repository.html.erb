@@ -43,6 +43,12 @@
               <%= check_box_tag :email_public, @email_public, class: 'form-control' %>
             </div>
 
+            <div class="form-group">
+              <%= label :labels, t('submit_form.label.labels') %>
+              <%= text_field_tag :labels, @labels, class: 'form-control' %>
+            </div>
+
+
             <% if @repository.allow_issue_title %>
                 <div class="form-group">
                   <%= label :issue_title, t('submit_form.label.issue_title') %>
