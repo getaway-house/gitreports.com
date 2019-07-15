@@ -41,7 +41,7 @@ class RepositoriesController < ApplicationController
     @repository = current_resource
 
     # Set each param passed in the URL.
-    %w[name email email_public issue_title details, labels].each do |p|
+    %w[name email email_public issue_title details labels].each do |p|
       instance_variable_set("@#{p}", params[p.intern])
     end
   end
