@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   around_action :catch_halt
 
-  before_action :ensure_production_host
+  # before_action :ensure_production_host
   before_action :set_locale
 
   def render(*args)
