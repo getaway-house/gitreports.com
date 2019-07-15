@@ -13,6 +13,7 @@ en:
       issue_title: Issue Title
       details: Details
       submit: Submit
+      labels: Labels
     captcha_message: Please complete the following CAPTCHA to prove that you're a human.
 
   simple_captcha:
