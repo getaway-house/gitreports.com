@@ -31,6 +31,7 @@ class Repository < ApplicationRecord
     body = ''
     body += "Submitter: #{sub_name}\r\n" unless sub_name.blank?
     body += "Email: #{email}\r\n" if email_public == 'on' && email.present?
+    details = details.join if details.class == Array
     body += details unless details.blank?
 
     body

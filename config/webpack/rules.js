@@ -26,6 +26,17 @@ const commonRules = [
       },
     ],
   },
+  {
+    test: /\.script\.js$/,
+    use: [
+      {
+        loader: 'script-loader',
+        options: {
+          sourceMap: true,
+        },
+      },
+    ]
+  },
 ];
 
 const prodRules = [

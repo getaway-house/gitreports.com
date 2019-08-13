@@ -16,6 +16,7 @@ gem 'sidekiq-status', '0.6.0'
 gem 'simple_captcha2', require: 'simple_captcha'
 gem 'sinatra'
 gem 'valid_email', require: 'valid_email/validate_email'
+gem 'trix-rails', require: 'trix'
 
 group :production do
   gem 'passenger', '~> 5.1'
@@ -29,6 +30,7 @@ group :development do
   gem 'binding_of_caller', '0.7.2'
   gem 'rubocop'
   gem 'sqlite3', '1.3.10'
+  gem 'pry'
 end
 
 group :test do

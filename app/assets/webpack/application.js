@@ -10,9 +10,12 @@ Rails.start();
 import 'javascripts/alert';
 import 'javascripts/nav';
 import 'javascripts/profile';
+import '!script-loader!./trix/dist/trix.js';
 
 // Styles.
 import 'bootstrap/dist/css/bootstrap';
 import 'stylesheets/layout';
 import 'stylesheets/nav';
 import 'stylesheets/simple_captcha';
+import './trix/dist/trix.css';
+

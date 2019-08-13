@@ -29,6 +29,7 @@
     "postcss-loader": "^2.0.6",
     "postcss-nested": "^2.0.4",
     "rails-ujs": "^5.1.2",
+    "script-loader": "^0.7.2",
     "stats-webpack-plugin": "^0.6.1",
     "style-loader": "^0.18.2",
     "webpack": "^3.3.0",
