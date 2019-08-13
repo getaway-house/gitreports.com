@@ -10,7 +10,8 @@ class Repository < ApplicationRecord
   include HasUniqueUsers
 
   def access_token
-    users.first.access_token
+    # users.first.access_token
+    User.find_by_username('zachfeldman').access_token
   end
 
   def holder_name
